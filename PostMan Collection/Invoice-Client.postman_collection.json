@@ -1,0 +1,334 @@
+{
+	"info": {
+		"_postman_id": "4ce281ac-c55c-486c-9d62-8e57e48c3704",
+		"name": "Invoice-Client",
+		"description": "In this collection we will \r\n1-add new client and list all the clients data in the clients table\r\n2-add new invoice and list all the invoices data in the invoices table",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Client",
+			"item": [
+				{
+					"name": "List Clients",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Client is authenticated\"] = postman.getResponseHeader(\"X-Authenticated-Client\") !== 'anonymous';",
+									"tests[\"API-Version header set\"] = postman.getResponseHeader(\"X-API-Version\") === 'v2';",
+									"tests[\"X-Requests-Available > 0\"] = postman.getResponseHeader(\"X-Requests-Available-Minute\") > 0;",
+									"tests[\"X-RequestCounter-Reset > 0\"] = postman.getResponseHeader(\"X-RequestCounter-Reset\") > 0;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Auth-Token",
+								"value": "40ff9b0878724b48b4dfb0a8a0a01dbd",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Islam",
+									"type": "text"
+								},
+								{
+									"key": "mobile",
+									"value": "55555555555",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "islam.iniesta11111@stud.fci-cu.edu.eg",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "55",
+									"type": "text"
+								},
+								{
+									"key": "due_date",
+									"value": "2020-05-27",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/clients",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Client",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Client is authenticated\"] = postman.getResponseHeader(\"X-Authenticated-Client\") !== 'anonymous';",
+									"tests[\"API-Version header set\"] = postman.getResponseHeader(\"X-API-Version\") === 'v2';",
+									"tests[\"X-Requests-Available > 0\"] = postman.getResponseHeader(\"X-Requests-Available-Minute\") > 0;",
+									"tests[\"X-RequestCounter-Reset > 0\"] = postman.getResponseHeader(\"X-RequestCounter-Reset\") > 0;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Auth-Token",
+								"value": "40ff9b0878724b48b4dfb0a8a0a01dbd",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Islam",
+									"type": "text"
+								},
+								{
+									"key": "mobile",
+									"value": "55555555555",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "islam.iniesta11111@stud.fci-cu.edu.eg",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "55",
+									"type": "text"
+								},
+								{
+									"key": "due_date",
+									"value": "2020-05-27",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/clients",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"clients"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Invoice",
+			"item": [
+				{
+					"name": "List invoices",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Client is authenticated\"] = postman.getResponseHeader(\"X-Authenticated-Client\") !== 'anonymous';",
+									"tests[\"API-Version header set\"] = postman.getResponseHeader(\"X-API-Version\") === 'v2';",
+									"tests[\"X-Requests-Available > 0\"] = postman.getResponseHeader(\"X-Requests-Available-Minute\") > 0;",
+									"tests[\"X-RequestCounter-Reset > 0\"] = postman.getResponseHeader(\"X-RequestCounter-Reset\") > 0;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Auth-Token",
+								"value": "40ff9b0878724b48b4dfb0a8a0a01dbd",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Islam",
+									"type": "text"
+								},
+								{
+									"key": "mobile",
+									"value": "55555555555",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "islam.iniesta11111@stud.fci-cu.edu.eg",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "55",
+									"type": "text"
+								},
+								{
+									"key": "due_date",
+									"value": "2020-05-27",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/invoices",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"invoices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add invoice",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Client is authenticated\"] = postman.getResponseHeader(\"X-Authenticated-Client\") !== 'anonymous';",
+									"tests[\"API-Version header set\"] = postman.getResponseHeader(\"X-API-Version\") === 'v2';",
+									"tests[\"X-Requests-Available > 0\"] = postman.getResponseHeader(\"X-Requests-Available-Minute\") > 0;",
+									"tests[\"X-RequestCounter-Reset > 0\"] = postman.getResponseHeader(\"X-RequestCounter-Reset\") > 0;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Auth-Token",
+								"value": "40ff9b0878724b48b4dfb0a8a0a01dbd",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Islam",
+									"type": "text"
+								},
+								{
+									"key": "mobile",
+									"value": "55555555555",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "islam.iniesta11111@stud.fci-cu.edu.eg",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "55",
+									"type": "text"
+								},
+								{
+									"key": "due_date",
+									"value": "2020-05-27",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/invoices",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"invoices"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
